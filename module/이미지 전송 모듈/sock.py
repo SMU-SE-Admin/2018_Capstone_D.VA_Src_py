@@ -56,9 +56,6 @@ ser2 = sock.create_serv(12225)
 while(True):
 	ser[1].send(b'Hi')
 	ser2[1].send(b'hello')
-# ser = Thread(target = sock.create_serv, args = (12224, ))
-# ser2 = Thread(target = sock.create_serv, args = (12225, ))
-# ser.start()
-# ser2.start()
+
 
 
