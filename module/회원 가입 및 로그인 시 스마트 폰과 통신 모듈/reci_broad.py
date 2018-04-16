@@ -55,9 +55,9 @@ class recieve_id_pass:
         if user_pass == "test_pass":
             count +=1
         if count == 2:
-            conn.send("yes".encode())
+            conn.send("yes:::".encode())
         else :
-            conn.send("no".encode())
+            conn.send("no:::".encode())
         
         
 if __name__=="__main__":
