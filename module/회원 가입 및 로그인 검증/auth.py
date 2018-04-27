@@ -1,6 +1,6 @@
 class sign(object):
 	def signin(self, memid, mempw):
-		f = open("memberlist.txt", 'r')
+		f = open("C:\\Users\\KJH\\Desktop\\memberlist.txt", 'r')
 		while True:	
 			line = f.readline()
 			if not line:
@@ -17,15 +17,18 @@ class sign(object):
 		return False
 
 	def signup(self, memid, mempw):
-		f = open("memberlist.txt", 'a')
+		
+		f = open("C:\\Users\\KJH\\Desktop\\memberlist.txt", 'a')
 		info = memid+' '+mempw+'\n'
 		f.write(info)
 		f.close()
 
+		return True
+
 	def valid_sn(self, sn):
-		f = open("sn.txt", 'r')
+		f = open("C:\\Users\\KJH\\Desktop\\sn.txt", 'r')
 		serial = f.readline()
-		serial = serial[:-1]
+#		serial = serial[:-1]
 		print(serial)
 		f.close()
 		if serial == sn:
@@ -35,25 +38,31 @@ class sign(object):
 
 	def split_string(self, info):	
 		info = info.split(':::')
-		return info
+		if len(info) == 2:
+			return self.signin(info[0], info[1])
+		else:
+			if self.valid_sn(info[2]):
+				return self.signup(info[0], info[1])
+			return False
 
 s = sign()
 string = "ABC:::1234:::1234567890"
-info = s.split_string(string)
-ID = info[0]
-PW = info[1]
-SN = info[2]
+info = s.split_string(string) 
 print(info)
-s.signup(ID, PW)
-if s.valid_sn('1234567890'):
-	s.signup(ID, PW)
-	print("yout info is registerd!")
-else:
-	print("serial num is wrong!")
+# ID = info[0]
+# PW = info[1]
+# SN = info[2]
+# print(info)
+# s.signup(ID, PW)
+# if s.valid_sn('1234567890'):
+# 	s.signup(ID, PW)
+# 	print("yout info is registerd!")
+# else:
+# 	print("serial num is wrong!")
 	
 
-if s.signin(ID, PW):
-	print("login succeed")
-else:
-	print("login failed")
+# if s.signin(ID, PW):
+# 	print("login succeed")
+# else:
+# 	print("login failed")
 
