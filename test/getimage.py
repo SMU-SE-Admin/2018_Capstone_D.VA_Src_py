@@ -16,8 +16,15 @@ import sys
 class image_converter:
   def __init__(self):
     self.bridge = CvBridge()
-    self.send_img = send_imgae()
     self.image_sub = rospy.Subscriber("/rgb/image",Image,self.callback)
+    
+    self.s = socket(AF_INET, SOCK_STREAM)
+    self.s.bind(("",12224))
+    self.s.listen(10)
+    self.conn, addr = self.s.accept()
+
+  def send_img(self,img):
+    self.conn.send(img.tobytes())
 
   def callback(self,data):
     try:
@@ -30,15 +37,15 @@ class image_converter:
     cv2.imshow("Image window", cv_image)
     cv2.waitKey(3)
 
-class send_image:
-  def __init__(self):
-    self.s = socket(AF_INET, SOCK_STREAM)
-    self.s.bind(("",12224))
-    self.s.listen(10)
-    self.conn, addr = self.s.accept()
-
-  def send_img(img):
-    self.conn.send(img.tobytes())
+##class send_image:
+##  def __init__(self):
+##    self.s = socket(AF_INET, SOCK_STREAM)
+##    self.s.bind(("",12224))
+##    self.s.listen(10)
+##    self.conn, addr = self.s.accept()
+##
+##  def send_img(img):
+##    self.conn.send(img.tobytes())
 
 if __name__ == '__main__':
   ic = image_converter()
