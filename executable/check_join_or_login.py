@@ -44,7 +44,7 @@ class sign(object):
             else:
                 f.close()
                 return "no:::"
-        return False
+        return "no:::"
     def signup(self, memid, mempw):
         f = open(os.path.join(self.THISFOLDER,"memberlist.txt"), 'a')
         info = memid+'\t'+mempw+'\n'
@@ -58,9 +58,9 @@ class sign(object):
         print(serial)
         f.close()
         if serial == sn:
-                return "yes:::"
+                return True
         else:
-                return "no:::"
+                return False
     def split_string(self, info):	
         info = info.split(':::')
         if len(info) == 2:
