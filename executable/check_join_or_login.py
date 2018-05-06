@@ -41,9 +41,9 @@ class sign(object):
             if (line[0] == memid) and (line[1] == mempw):
                 f.close()
                 return "yes:::"
-            else:
-                f.close()
-                return "no:::"
+            #else:
+                #f.close()
+                #return "no:::"
         return "no:::"
     def signup(self, memid, mempw):
         f = open(os.path.join(self.THISFOLDER,"memberlist.txt"), 'a')
