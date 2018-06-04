@@ -1,8 +1,9 @@
 import socket
 import os
 
+port = 5002
 sock = socket.socket()
-sock.bind(('',5001))
+sock.bind(('',port))
 print "create socket"
 
 while True:
@@ -15,4 +16,4 @@ while True:
     msg = data.split(":::")[0]
     print msg
 
-    os.system("python "+os.path.join(os.getcwd(),msg))
+    os.system("python "+os.path.join(os.getcwd(),"StringClassify",msg))
