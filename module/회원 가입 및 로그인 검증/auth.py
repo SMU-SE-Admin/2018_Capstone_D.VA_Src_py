@@ -49,6 +49,7 @@ s = sign()
 string = "ABC:::1234:::1234567890"
 info = s.split_string(string) 
 print(info)
+
 # ID = info[0]
 # PW = info[1]
 # SN = info[2]
