@@ -13,6 +13,12 @@ while True:
     data1 = cli.recv(1024)
     data1 = data1.split(":::")[0]
     print data1
+    if data1 == "cancel":
+        print "sock close"
+        cli.close()
+        sock.close()
+        break
+
     if data2 != data1:
         path = "kill -9 "+str(p.pid)
         p.send_signal(signal.SIGINT)

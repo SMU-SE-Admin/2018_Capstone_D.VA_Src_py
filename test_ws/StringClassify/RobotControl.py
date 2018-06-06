@@ -30,9 +30,9 @@ while True:
         path = "kill -9 "+str(p2.pid)
         print path
         subprocess.Popen(path.split(" "))
-        path = "kill -9 "+str(p1.pid)
-        print path
-        subprocess.Popen(path.split(" "))
+        #path = "kill -9 "+str(p1.pid)
+        #print path
+        #subprocess.Popen(path.split(" "))
         cli.close()
         sock.close()
         sys.exit(0)
