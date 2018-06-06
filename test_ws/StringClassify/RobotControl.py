@@ -36,4 +36,4 @@ while True:
         subprocess.Popen(path.split(" "))
         cli.close()
         sock.close()
-        sys.exit(0)
+        break
