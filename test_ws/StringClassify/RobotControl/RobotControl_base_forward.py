@@ -47,5 +47,6 @@ class GoForward():
         # sleep just makes sure TurtleBot receives the stop command prior to shutting down the script
         rospy.sleep(1)
 
+a = GoForward()
 while True :
-    pub()
+    a.pub()
