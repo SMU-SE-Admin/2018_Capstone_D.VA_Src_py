@@ -26,7 +26,7 @@ class GoForward():
         # Twist is a datatype for velocity
         self.move_cmd = Twist()
 
-        self.move_cmd.linear.x = 0.1
+        self.move_cmd.linear.x = 0
         self.move_cmd.angular.z = 0
 
     def pub(self):
@@ -47,5 +47,6 @@ class GoForward():
         # sleep just makes sure TurtleBot receives the stop command prior to shutting down the script
         rospy.sleep(1)
 
+a = GoForward()
 while True :
-    pub()
+    a.pub()
