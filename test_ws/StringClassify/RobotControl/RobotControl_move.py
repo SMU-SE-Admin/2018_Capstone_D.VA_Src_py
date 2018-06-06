@@ -16,4 +16,5 @@ while True:
         path = "kill -9 "+str(p.pid)
         path = "python "+os.path.join(os.path.dirname(os.path.abspath(__file__)),data1)
         p = subprocess.Popen(path.split(' '))
+        data2 = data1
     
