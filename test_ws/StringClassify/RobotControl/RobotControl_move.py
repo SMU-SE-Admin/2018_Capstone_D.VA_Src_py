@@ -71,13 +71,13 @@ class Recv_string:
         self.sock = socket.socket()
 	self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind(('', port))
-#        print('init end')
+        print('init end')
 
     def connect_and_recv(self):
         self.sock.listen(10)
-#        print('wait client')
+        print('wait client')
         cli, info = self.sock.accept()
-#        print('client accepted')
+        print('client accepted')
         msg = self.recv_string(cli)
         return msg
 
