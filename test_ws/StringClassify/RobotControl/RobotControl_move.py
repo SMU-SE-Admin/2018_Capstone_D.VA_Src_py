@@ -1,5 +1,6 @@
 import socket, subprocess, os, signal
 sock = socket.socket()
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(('',5006))
 sock.listen(10)
 
