@@ -10,7 +10,7 @@ p = subprocess.Popen(path.split(' '))
 while True:
     cli, info = sock.accept()
     data1 = cli.recv(1024)
-    data1 = data.split(":::")[0]
+    data1 = data1.split(":::")[0]
     print data1
     if data2 != data1:
         path = "kill -9 "+str(p.pid)
