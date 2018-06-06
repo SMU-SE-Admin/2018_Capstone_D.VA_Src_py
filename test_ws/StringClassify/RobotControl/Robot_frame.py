@@ -5,7 +5,10 @@ import numpy
 import time
 import os
 
-f = open(os.path.join(os.getcwd(),"StringClassify","RobotControl","ip.txt"),"r")
+
+pro = os.path.join(os.path.dirname(os.path.abspath(__file__)),"ip.txt")
+#f = open(os.path.join(os.getcwd(),"StringClassify","RobotControl","ip.txt"),"r")
+f = open(pro, "r")
 ip = f.readline()
 f.close()
 port = 5005

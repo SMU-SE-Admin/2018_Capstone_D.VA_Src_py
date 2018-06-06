@@ -2,6 +2,7 @@ import socket, sys, os
 
 port = 5003
 sock = socket.socket()
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(('',port))
 print "create login socket"
 
@@ -12,7 +13,11 @@ print "login cli accept"
 data = cli.recv(1024)
 
 #read login list
-f = open(os.path.join(os.getcwd(),"StringClassify","logininfo.txt"),"r")
+#f = open(os.path.join(os.getcwd(),"StringClassify","logininfo.txt"),"r")
+pro = os.path.join(os.path.dirname(os.path.abspath(__file__)),"logininfo.txt")
+print pro
+
+f = open(pro, "r")
 loginlist = {}
 while True:
     line = f.readline()
