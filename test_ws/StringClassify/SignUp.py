@@ -10,13 +10,6 @@ cli, info = sock.accept()
 print "signup cli accept"
 
 data = cli.recv(1024)
-data = data.split(":::")
-#pressed android back button
-if data[0] == "cancel":
-    print "cancel"
-    cli.close()
-    sock.close()
-    sys.exit(0)
 
 #read login list
 f = open(os.path.join(os.getcwd(), "StringClassify", "logininfo.txt"), "r")
@@ -29,6 +22,7 @@ while True:
     loginlist[line[0]] = line[1]
 f.close()
 
+data = data.split(":::")
 #if id exist then fail
 if data[0] in loginlist:
     print "noid:::"

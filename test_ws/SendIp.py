@@ -1,5 +1,6 @@
 from socket import *
 import socket as sk
+import os, subprocess, thread
 
 class recieve_broad:
     def __init__(self):
@@ -23,11 +24,15 @@ class send_my_ip:
         my_ip = sk.gethostbyname(sk.gethostname())+":::"
         self.s.send(my_ip.encode())
         self.s.close()
+
 if __name__=="__main__":
     while True:
         phone_ip = recieve_broad()
         ip = phone_ip.reci()
         print(ip)
+        f = open(os.path.join(os.getcwd(),"StringClassify","RobotControl","ip.txt"),"w")
+        f.write(ip)
+        f.close()
         my_ip = send_my_ip(ip)
         my_ip.send_ip()
 	

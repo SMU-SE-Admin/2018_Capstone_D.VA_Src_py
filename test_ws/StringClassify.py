@@ -1,10 +1,14 @@
 import socket
-import os
+import os, subprocess, thread
 
 port = 5002
 sock = socket.socket()
 sock.bind(('',port))
 print "create socket"
+
+def openSendIp():
+    subprocess.call("python "+os.path.join(os.getcwd(),"SendIp.py"))
+thread.start_new_thread(openSendIp,())
 
 while True:
     sock.listen(10)
@@ -16,4 +20,5 @@ while True:
     msg = data.split(":::")[0]
     print msg
 
-    os.system("python "+os.path.join(os.getcwd(),"StringClassify",msg))
+    #os.system("python "+os.path.join(os.getcwd(),"StringClassify",msg))
+    subprocess.call("python "+os.path.join(os.getcwd(),"StringClassify",msg))
