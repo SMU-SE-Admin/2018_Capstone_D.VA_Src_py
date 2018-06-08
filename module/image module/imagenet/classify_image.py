@@ -139,9 +139,9 @@ def run_inference_on_image(image):
     Nothing
   """
   if not tf.gfile.Exists(image):
-    tf.logging.fatal('File does not exist %s', image)
+     tf.logging.fatal('File does not exist %s', image)
   image_data = tf.gfile.FastGFile(image, 'rb').read()
-
+  print(type(image_data))
   # Creates graph from saved GraphDef.
   create_graph()
 
@@ -190,9 +190,9 @@ def maybe_download_and_extract():
 
 def main(path):
   maybe_download_and_extract()
-  image_file = path
-  image = (image_file if image_file else
-           os.path.join(model_dir, 'cropped_panda.jpg'))
+  # image_file = path
+  # image = (image_file if image_file else
+  #          os.path.join(model_dir, 'cropped_panda.jpg'))
   run_inference_on_image(image)
 
 def start(path):
