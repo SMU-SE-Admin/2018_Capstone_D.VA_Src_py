@@ -138,11 +138,11 @@ def run_inference_on_image(image):
   Returns:
     Nothing
   """
-  if not tf.gfile.Exists(image):
-     tf.logging.fatal('File does not exist %s', image)
-  image_data = tf.gfile.FastGFile(image, 'rb').read()
-  print(type(image_data))
+  # if not tf.gfile.Exists(image):
+  #    tf.logging.fatal('File does not exist %s', image)
+  # image_data = tf.gfile.FastGFile(image, 'rb').read()
   # Creates graph from saved GraphDef.
+  image_data = image
   create_graph()
 
   with tf.Session() as sess:
@@ -193,7 +193,7 @@ def main(path):
   # image_file = path
   # image = (image_file if image_file else
   #          os.path.join(model_dir, 'cropped_panda.jpg'))
-  run_inference_on_image(image)
+  run_inference_on_image(path)
 
 def start(path):
   # parser = argparse.ArgumentParser()
