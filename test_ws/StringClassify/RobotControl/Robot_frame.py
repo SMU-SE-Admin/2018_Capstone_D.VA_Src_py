@@ -18,7 +18,7 @@ import os
 class image_converter:
 
   def __init__(self):
-    self.image_pub = rospy.Publisher("image_topic_2",Image)
+    #self.image_pub = rospy.Publisher("image_topic_2",Image)
 
     self.bridge = CvBridge()
     self.image_sub = rospy.Subscriber("/rgb/image",Image,self.callback)

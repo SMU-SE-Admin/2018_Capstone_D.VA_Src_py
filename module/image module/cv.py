@@ -1,17 +1,20 @@
 import numpy
-import cv2, io
+import cv2, io, sys
+sys.path.append('/home/turtlebot/testing/2018_Capstone_D.VA_Src_py/module/image module/imagenet')
 from PIL import Image
-from imagenet import classify_image
+import classify_image
 # Just disables the warning, doesn't enable AVX/FMA
 import os
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
+'''
 img = cv2.imread('C:\\Users\\KJH\\Desktop', cv2.IMREAD_COLOR)
+'''
 cap = cv2.VideoCapture(0)
-
+'''
 fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 out = cv2.VideoWriter('output.avi', fourcc, 25.0, (640,480))
-
+'''
 ret, frame = cap.read()
 
 if ret:
@@ -31,5 +34,4 @@ if ret:
     print(classify_image.result)
 
 cap.release()
-out.release()
 cv2.destroyAllWindows()

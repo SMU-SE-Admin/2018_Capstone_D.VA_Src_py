@@ -17,6 +17,12 @@ print path.split(' ')
 p2 = subprocess.Popen(path.split(' '))
 print p2.pid
 
+path = "python "+os.path.join(os.path.dirname(os.path.abspath(__file__)),"RobotControl", "Find_object_name.py")
+print path
+print path.split(' ')
+p3 = subprocess.Popen(path.split(' '))
+print p3.pid
+
 sock = socket.socket()
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(('',5007))
@@ -31,9 +37,15 @@ while True:
         print path
         subprocess.Popen(path.split(" "))
         time.sleep(1)
+
         path = "kill -9 "+str(p1.pid)
         print path
         subprocess.Popen(path.split(" "))
+	time.sleep(1)
+
+	path = "kill -9 "+str(p3.pid)
+	print path
+	subprocess.Popen(path.split(" "))
         cli.close()
         sock.close()
         break
