@@ -46,6 +46,9 @@ while True:
 	path = "kill -9 "+str(p3.pid)
 	print path
 	subprocess.Popen(path.split(" "))
+        time.sleep(2)
+        print "all close--------------"
+
         cli.close()
         sock.close()
         break

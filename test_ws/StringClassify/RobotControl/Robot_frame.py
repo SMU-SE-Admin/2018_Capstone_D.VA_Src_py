@@ -45,7 +45,7 @@ class image_converter:
     data_img = numpy.array(imgencode)
     row_img = data_img.tostring()
     img = base64.standard_b64encode(row_img)
-    print(len(img))
+    #print(len(img))
     s = str(len(img)) + ":::"
     s = s.zfill(1024)
     self.sock.sendto(s, (self.ip, self.port))
